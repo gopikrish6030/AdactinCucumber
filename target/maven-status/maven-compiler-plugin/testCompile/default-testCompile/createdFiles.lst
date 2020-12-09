@@ -1,0 +1,4 @@
+com\adactin\baseclass\AppTest.class
+com\adactin\runner\TestRunner.class
+com\adactin\stepdefinition\StepDefinition.class
+com\adactin\utility\ConfigurationReader.class
