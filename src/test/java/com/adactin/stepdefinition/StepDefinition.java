@@ -232,7 +232,6 @@ public class StepDefinition extends BaseClass {
 
 	@Then("^User verifies whether search hotel page navigates to select hotel page$")
 	public void user_verifies_whether_search_hotel_page_navigates_to_select_hotel_page() {
-		Assert.assertEquals("AL", "al");
 
 	}
 

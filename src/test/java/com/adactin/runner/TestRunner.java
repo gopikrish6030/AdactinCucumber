@@ -2,6 +2,7 @@ package com.adactin.runner;
 
 import java.io.IOException;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,8 @@ import cucumber.api.junit.Cucumber;
 					glue = "com\\adactin\\stepdefinition",
 					plugin = {/*"pretty", "html:Report/CucumberReport",
 							"json:Report/Cucumber.json",*/
-							"com.cucumber.listener.ExtentCucumberFormatter:Report/CucumberExtentReport.html"},
+							"com.cucumber.listener.ExtentCucumberFormatter:Report/CucumberExtentReport.html",
+							"rerun:Report/FailedScenario.txt"},
 					
 					monochrome = true,
 					dryRun = false,
@@ -27,9 +29,15 @@ import cucumber.api.junit.Cucumber;
 public class TestRunner {
 
 	public static WebDriver driver;
+	
 	@BeforeClass
-	public static void sample() throws IOException {
+	public static void setUp() throws IOException {
 	String browserName = FileReaderManager.getInstance().getCrInstance().getBrowserName();
 	driver = BaseClass.getBrowser(browserName);
+	}
+	
+	@AfterClass
+	public static void teardown() {
+		driver.close();
 	}
 }
